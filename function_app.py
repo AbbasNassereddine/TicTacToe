@@ -46,7 +46,7 @@ def get_response(input_message,chat_history):
 
 
 if 'client' not in st.session_state:
-    # Initialize the client once and store it in session state
+    # Initialize the client once and store it in session stat
     st.session_state.client = getCredentials()  
     st.session_state.MODEL_ID = os.getenv('MODEL_ID')
     st.session_state.chat_history = []
