@@ -7,7 +7,7 @@ This project implements a Tic Tac Toe bot using Streamlit, OpenAI, and AWS Bedro
 - **Human Mode**: Interact directly with the bot to play Tic Tac Toe.
 - **Auto Mode**: Alternate gameplay between Bedrock and GPT models.
 - **Dynamic Icons**: Replace symbols (e.g., `X` and `O`) with SVG-based shapes rendered as images.
-- **Game Validation**: Automatically checks for game victory conditions.
+- **Game Validation**: Automatically checks for game victory conditions, to deterministically confirm victory and prevent overreliance on bot to determine game outcome.
 
 ## Setup Instructions
 
