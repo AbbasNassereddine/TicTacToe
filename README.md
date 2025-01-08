@@ -10,7 +10,7 @@ This project implements a Tic Tac Toe bot using Streamlit, OpenAI, and AWS Bedro
 ## Features
 
 - **Human Mode**: Interact directly with the bot to play Tic Tac Toe.
-- **Auto Mode**: Alternate gameplay between Bedrock and GPT models.
+- **Auto Mode**: Alternate gameplay between Bedrock and GPT models. 
 - **Dynamic Icons**: Replace symbols (e.g., `X` and `O`) with SVG-based shapes rendered as images.
 - **Game Validation**: Automatically checks for game victory conditions, to deterministically confirm victory and prevent overreliance on bot to determine game outcome.
 
@@ -84,11 +84,19 @@ The application initializes session state variables for:
 - Accepts user input and interacts with the bot.
 - Validates game outcomes.
 
-#### Auto Mode
+#### Auto Mode 
 
 - Alternates gameplay between Bedrock and GPT models.
 - Tracks responses from both models.
 - Validates game outcomes.
+
+ #### Multi agent interaction
+
+This PoC gave me the chance to implement multi-agent interaction, where each agent runs on a dedicated model. In realistic scenarios, agents can interact with each other while each having specific domain knowledge and/or computational attributes ( model, token size, etc..).
+This solution depends on session states where one bot’s is considered as the other’s assistant, and vice versa.
+In more technical terms, a payload to a bot normally looks as follows : { role: user/assistant, content: input). Therefore, as the conversation flows the response as one bot ( output) is used as input in the payload of the other.
+
+
 
 ### Passing Instructions to Anthropic in the form of a first user prompt without explicitly displaying the prompt
 
@@ -107,6 +115,7 @@ st.markdown("### Chat:")
 
 
 #### Game Validation and Outcome Testing
+  To mitigate potential hallucination on the game outcome step, a validation layer has been added that triggers when a string of “Game is Won” is detected in the response. The bot is asked to use this flag when it thinks the game is done. This triggers the “check victory” function that is based on deterministic methods to detect victory on the game board. This shows the importance of enriching bots with other functions to prevent hallucination and ensure proper outcome
 
 - **`check_victory(chat)`**: Validates the Tic Tac Toe board to determine if a player has won.
 Game Validation: Regex Extraction in Detail
