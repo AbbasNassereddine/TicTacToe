@@ -1,8 +1,8 @@
 # Tic Tac Toe Bot with Streamlit
 
-** By: Abbas NAssereddine **
+###### By: Abbas Nassereddine ###### 
 
-** For: Tech Tank Team **
+######  For: Tech Tank Team ###### 
 
 
 This project implements a Tic Tac Toe bot using Streamlit, OpenAI, and AWS Bedrock services. The bot can play Tic Tac Toe in two modes: `Human` (interaction with a user) and `Auto` (interaction between two AI models).
