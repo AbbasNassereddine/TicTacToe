@@ -44,7 +44,7 @@ This project implements a Tic Tac Toe bot using Streamlit, OpenAI, and AWS Bedro
 Start the Streamlit app by running:
 
 ```bash
-streamlit run app.py
+streamlit run function_app.py
 ```
 
 ## Code Structure
