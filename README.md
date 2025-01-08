@@ -144,7 +144,6 @@ The application initializes session state variables for:
 ![image](https://github.com/user-attachments/assets/ef14d224-63f4-498d-99f1-710ee028fea0)
 
 
-  data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBvbHlnb24gcG9pbnRzPSIyNSwwIDUwLDUwIDAsNTAiIHN0eWxlPSJmaWxsOmJsdWU7c3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDoxIiAvPgo8L3N2Zz4=
   ```
 - **Red Circle Icon**:
   ```
