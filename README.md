@@ -61,49 +61,6 @@ streamlit run app.py
 - **`icon_style(input)`**: Generates icons using OpenAI's DALL-E model.
 - **`icon_bedrock(input, client)`**: Generates icons using Bedrock's Stability AI.
 
-#### Game Validation and Outcome Testing
-
-- **`check_victory(chat)`**: Validates the Tic Tac Toe board to determine if a player has won.
-Game Validation: Regex Extraction in Detail
-The game validation function uses regex to extract and process the game state from the bot's response. Here's a breakdown of how this works:
-
-   ##### Regex to Extract Symbols and Numbers:
-   
-   The regex pattern r'X|O|[0-9]' is used to match:
-   X: Represents one player's moves.
-   O: Represents the other player's moves.
-   [0-9]: Represents available positions on the board.
-   This ensures only valid characters relevant to the Tic Tac Toe game are extracted from the bot's response.
-   
-   Example Input and Output:
-   
-   Input Bot Response:
-   "X | O | 3
-    4 | X | 6
-    O | 8 | 9"
-   Regex Output:
-   css
-   Copy code
-   ['X', 'O', '3', '4', 'X', '6', 'O', '8', '9']
-   Filter and Limit Data:
-   
-   Remove Unnecessary Characters: After extraction, the list excludes spaces and grid symbols like | or newlines.
-   Limit to First 9 Items: Ensures only the first 9 valid positions (corresponding to the 3x3 board) are retained.
-   Final List Example:
-   ['X', 'O', '3', '4', 'X', '6', 'O', '8', '9']
-   Determine Player Moves:
-   
-   Indices of X: Find the positions where X is present, converted to a set of indices.
-   Example: {1, 5}
-   Indices of O: Find the positions where O is present, converted to a set of indices.
-   Example: {2, 7}
-   These indices represent the board positions occupied by each player.
-   Validate Against Winning Combinations:
-   
-   The function checks if any predefined winning combination (rows, columns, or diagonals) is a subset of the X or O indices.
-   Example Winning Combination: {1, 5, 9} (Diagonal)
-   If a match is found, the game is declared won by the corresponding player.
-
 ### Session State Initialization
 
 The application initializes session state variables for:
@@ -143,6 +100,47 @@ st.markdown("### Chat:")
 
  ```
 
+
+#### Game Validation and Outcome Testing
+
+- **`check_victory(chat)`**: Validates the Tic Tac Toe board to determine if a player has won.
+Game Validation: Regex Extraction in Detail
+The game validation function uses regex to extract and process the game state from the bot's response. Here's a breakdown of how this works:
+
+   ##### Regex to Extract Symbols and Numbers:
+   
+   The regex pattern r'X|O|[0-9]' is used to match:
+   X: Represents one player's moves.
+   O: Represents the other player's moves.
+   [0-9]: Represents available positions on the board.
+   This ensures only valid characters relevant to the Tic Tac Toe game are extracted from the bot's response.
+   
+   Example Input and Output:
+   
+   Input Bot Response:
+   "X | O | 3
+    4 | X | 6
+    O | 8 | 9"
+   Regex Output:
+   ['X', 'O', '3', '4', 'X', '6', 'O', '8', '9']
+   Filter and Limit Data:
+   
+   Remove Unnecessary Characters: After extraction, the list excludes spaces and grid symbols like | or newlines.
+   Limit to First 9 Items: Ensures only the first 9 valid positions (corresponding to the 3x3 board) are retained.
+   Final List Example:
+   ['X', 'O', '3', '4', 'X', '6', 'O', '8', '9']
+   Determine Player Moves:
+   
+   Indices of X: Find the positions where X is present, converted to a set of indices.
+   Example: {1, 5}
+   Indices of O: Find the positions where O is present, converted to a set of indices.
+   Example: {2, 7}
+   These indices represent the board positions occupied by each player.
+   Validate Against Winning Combinations:
+   
+   The function checks if any predefined winning combination (rows, columns, or diagonals) is a subset of the X or O indices.
+   Example Winning Combination: {1, 5, 9} (Diagonal)
+   If a match is found, the game is declared won by the corresponding player.
 
 
 
