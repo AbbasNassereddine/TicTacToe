@@ -133,24 +133,37 @@ The application initializes session state variables for:
 - Tracks responses from both models.
 - Validates game outcomes.
 
+### Passing Instructions to Anthropic in the form of a first user prompt without explicitly displaying the prompt
+
+As the Anthropic Chat Completion APi lacks an explicit "system"role, these instructions can be given in the form of a user payload that cna be potentially run only in the back end without displaying to front-end as follows:
+
+st.session_state.chat_history = []
+    st.session_state.chat_history.append({
+            "role": "user",
+            "content": 'Introduce yourself as a bot that plays Tic Tac Toe.  Display the board in a 3x3 grid.' 
+        })
+st.markdown("### Chat:")
+    for chat in st.session_state.chat_history[1:]
+
+
+
 
 
 
 ## Example SVG Icons
 
 - **Triangle Icon**:
-  ```
+
   
 ![image](https://github.com/user-attachments/assets/ef14d224-63f4-498d-99f1-710ee028fea0)
 
 
-  ```
 - **Red Circle Icon**:
   ```
   data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMjAiIGZpbGw9InJlZCIgLz48L3N2Zz4=
   ```
 
-## Dependencies
+## **Dependencies**
 
 - `streamlit`: For UI rendering.
 - `boto3`: For AWS integration.
@@ -162,12 +175,19 @@ The application initializes session state variables for:
 - `re`: For regex operations.
 - `base64`: For encoding SVG icons.
 
+
 ## How It Works
 
 1. **Human Mode**: Users interact with the bot, inputting moves. The bot processes responses and displays the updated board.
 2. **Auto Mode**: Bedrock and GPT bots take turns until a winner is determined or the board is full.
 3. **Icons**: Customizable SVG-based shapes are used to replace `X` and `O` on the board.
-4. **Game Validation**: Ensures that the game is correctly won based on Tic Tac Toe rules.
+4. **Game Validation and Testing**: Ensures that the game is correctly won based on Tic Tac Toe rules.
+
+## What Can be Improved
+
+1. Incorporate icons instesad of X and Os, however, markdown does not support generating inside preformatted blocks.Also, image generation in-text lead to slow run time
+2. Improve UI
+3. Offer more choice to user
 
 ## Future Enhancements
 
