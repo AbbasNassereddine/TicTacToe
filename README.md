@@ -109,7 +109,7 @@ bot2_response = get_chatgpt_response(bot2_chat_history, "gpt-3.5-turbo")
                 st.warning("Bot 2 did not respond.")
                 break
 
-            bot1_response = get_bedrock_response(bot1_chat_history)
+bot1_response = get_bedrock_response(bot1_chat_history)
             if bot1_response:
                 bot2_chat_history.append({"role": "assistant", "content": bot2_response})
                 bot2_chat_history.append({"role": "user", "content": bot1_response})
