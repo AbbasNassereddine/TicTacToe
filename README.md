@@ -61,7 +61,7 @@ streamlit run app.py
 - **`icon_style(input)`**: Generates icons using OpenAI's DALL-E model.
 - **`icon_bedrock(input, client)`**: Generates icons using Bedrock's Stability AI.
 
-#### Game Validation
+#### Game Validation and Outcome Testing
 
 - **`check_victory(chat)`**: Validates the Tic Tac Toe board to determine if a player has won.
 Game Validation: Regex Extraction in Detail
