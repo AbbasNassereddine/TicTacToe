@@ -96,7 +96,27 @@ This PoC gave me the chance to implement multi-agent interaction, where each age
 This solution depends on session states where one bot’s is considered as the other’s assistant, and vice versa.
 In more technical terms, a payload to a bot normally looks as follows : { role: user/assistant, content: input). Therefore, as the conversation flows the response as one bot ( output) is used as input in the payload of the other.
 
+Alternation of instances to ensure multi-bot interaction: 
 
+ ```
+bot2_response = get_chatgpt_response(bot2_chat_history, "gpt-3.5-turbo")
+            if bot2_response:
+                bot1_chat_history.append({"role": "assistant", "content": bot1_response})
+                bot1_chat_history.append({"role": "user", "content": bot2_response})
+                st.markdown("### Bot 2 (ChatGPT) says:")
+                st.write(bot2_response)
+            else:
+                st.warning("Bot 2 did not respond.")
+                break
+
+            bot1_response = get_bedrock_response(bot1_chat_history)
+            if bot1_response:
+                bot2_chat_history.append({"role": "assistant", "content": bot2_response})
+                bot2_chat_history.append({"role": "user", "content": bot1_response})
+                st.markdown("### Bot 1 (Bedrock) says:")
+                st.write(bot1_response)
+
+ ```
 
 ### Passing Instructions to Anthropic in the form of a first user prompt without explicitly displaying the prompt
 
