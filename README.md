@@ -202,7 +202,6 @@ The game validation function uses regex to extract and process the game state fr
 - `anthropic`: For Bedrock API integration.
 - `openai`: For OpenAI API integration.
 - `Pillow`: For image processing.
-- `requests`: For handling HTTP requests.
 - `dotenv`: For managing environment variables.
 - `re`: For regex operations.
 - `base64`: For encoding SVG icons.
