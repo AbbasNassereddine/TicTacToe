@@ -125,7 +125,3 @@ The application initializes session state variables for:
 - Implement advanced AI strategies for Tic Tac Toe.
 - Expand game options to include other board games.
 
-## License
-
-This project is licensed under the MIT License. See `LICENSE` for details.
-
