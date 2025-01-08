@@ -121,7 +121,7 @@ The application initializes session state variables for:
 
 ## Future Enhancements
 
-- Add more shapes and styles for customization.
-- Implement advanced AI strategies for Tic Tac Toe.
-- Expand game options to include other board games.
+- Use DALLE library to generate custom icons to replace standard X and O
+- Deployment of the function_app.py to Cloud Functions (eg: Azure Functions)
+- Incorporate CI/CD
 
