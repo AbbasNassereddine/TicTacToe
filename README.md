@@ -78,8 +78,6 @@ The game validation function uses regex to extract and process the game state fr
    Example Input and Output:
    
    Input Bot Response:
-   arduino
-   Copy code
    "X | O | 3
     4 | X | 6
     O | 8 | 9"
@@ -92,9 +90,6 @@ The game validation function uses regex to extract and process the game state fr
    Remove Unnecessary Characters: After extraction, the list excludes spaces and grid symbols like | or newlines.
    Limit to First 9 Items: Ensures only the first 9 valid positions (corresponding to the 3x3 board) are retained.
    Final List Example:
-   
-   css
-   Copy code
    ['X', 'O', '3', '4', 'X', '6', 'O', '8', '9']
    Determine Player Moves:
    
@@ -137,6 +132,7 @@ The application initializes session state variables for:
 
 As the Anthropic Chat Completion APi lacks an explicit "system"role, these instructions can be given in the form of a user payload that cna be potentially run only in the back end without displaying to front-end as follows:
 
+ ```
 st.session_state.chat_history = []
     st.session_state.chat_history.append({
             "role": "user",
@@ -145,7 +141,7 @@ st.session_state.chat_history = []
 st.markdown("### Chat:")
     for chat in st.session_state.chat_history[1:]
 
-
+ ```
 
 
 
