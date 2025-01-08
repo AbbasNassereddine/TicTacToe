@@ -126,9 +126,9 @@ The game validation function uses regex to extract and process the game state fr
   
 
 ```
-   "X | O | 3
+    X | O | 3
     4 | X | 6
-    O | 8 | 9"
+    O | 8 | 9
   ```
    Regex Output:
    ['X', 'O', '3', '4', 'X', '6', 'O', '8', '9']
