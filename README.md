@@ -34,9 +34,9 @@ This project implements a Tic Tac Toe bot using Streamlit, OpenAI, and AWS Bedro
 3. Create a `.env` file named `TT.env` in the project root with the following variables:
    ```env
    AWS_ACCESS_KEY_ID=your_aws_access_key
-   AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+   AWS_SECRET_ACCESS_KEY=aws_secret_key
    AWS_REGION=your_aws_region
-   OPENAI_API_KEY=your_openai_api_key
+   OPENAI_API_KEY=openai_api_key
    ```
 
 ### Running the Application
