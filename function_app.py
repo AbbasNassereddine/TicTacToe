@@ -174,7 +174,7 @@ if st.session_state.mode == 'Human':
     for chat in st.session_state.chat_history[1:]:
         if chat["role"] == "user":
             st.markdown(f"**You**: {chat['content']}")
-        elif chat["role"] == "assistant":
+        elif chat["role"] == "assistant": # Dynamic Shape Creation
             triangle_svg_base64 = (
                 "PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBvbHlnb24gcG9pbnRzPSIyNSwwIDUwLDUwIDAsNTAiIHN0eWxlPSJmaWxsOmJsdWU7c3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDoxIiAvPgo8L3N2Zz4="
             )
@@ -216,7 +216,7 @@ if st.session_state.mode == 'Human':
             game_status = check_victory(bot_response)
             st.markdown(game_status)
 
-# Auto mode
+# Auto mode: Alternayte chat between Bedrock and GPT instances
 if st.session_state.mode == "Auto":
     user_input = "Play tic tac toe"
     if user_input:
@@ -252,6 +252,7 @@ if st.session_state.mode == "Auto":
             else:
                 st.warning("Bot 1 did not respond.")
                 break
+            # Game Victory Validation Layer
             if 'game is won' in bot1_response.lower():
                 bot1_chat_history.append({"role": "user", "content": check_victory(bot1_response)})
                 st.markdown("### Bot 2 says:")
